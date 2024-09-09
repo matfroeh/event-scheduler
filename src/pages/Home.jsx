@@ -6,7 +6,7 @@ function Home() {
     <div>
       <div>Home</div>
       
-      {/* ToDo: Only to show up when protected */}
+      {/* ToDo: This link will be in the HomeProtected.jsx only*/}
       <Link to="/create-event">Create Event</Link>
     </div>
   );

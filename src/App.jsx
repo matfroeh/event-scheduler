@@ -8,17 +8,23 @@ import EventDetails from "./pages/EventDetails";
 
 const App = () => {
   return (
-  <>
-  <Routes>
-    <Route path="/" element={<Layout />}>
-      <Route index element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/create-event" element={<CreateEvent />} />
-      <Route path="/event/:id" element={<EventDetails />} />    
-    </Route>
-  </Routes>
-  </>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/create-event" element={<CreateEvent />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/event/:id" element={<EventDetails />} />
+
+{/* ToDO */}
+          {/* <Route path="/auth" element={<ProtectedLayout />}>
+            <Route index element={<HomeProtected />} />
+          </Route> */}
+
+        </Route>
+      </Routes>
+    </>
   );
 };
 

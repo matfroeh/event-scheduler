@@ -25,7 +25,7 @@ function Login() {
   return (
     <div>
       <div>Login Page</div>
-      <button to="/auth" className="btn btn-primary" onClick={handleLogin}>
+      <button className="btn btn-primary" onClick={handleLogin}>
         Login (with predefined test userData in Login.jsx)
       </button>
     </div>

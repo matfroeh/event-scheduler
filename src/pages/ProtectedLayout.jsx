@@ -1,17 +1,14 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContextProvider";
 
-const ProtectedLayout = () => {
-  // Just for testing purposes
-  const { auth, setAuth } = useOutletContext();
+const ProtectedLayout = () => { 
+  const { auth } = useAuthContext();
 
-  useEffect(() => {
-    setAuth(Math.random() > 0.5 ? true : false);
-    console.log(auth);
-  }, []);
+  console.log(`authentification status: ${auth}`);
+  
 
-  return auth ? <Outlet /> : <Navigate to="/login" />;
+
+  return auth ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
 export default ProtectedLayout;

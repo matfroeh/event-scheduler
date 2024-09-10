@@ -9,6 +9,12 @@ const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
 
+  const logout = () => {
+    setAuth(false);
+    setUser(null);
+    setToken(null);
+  };
+
   const login = async (loginData) => {
     try {
       const { emailValue, passwordValue } = loginData;
@@ -28,14 +34,15 @@ const AuthContextProvider = ({ children }) => {
         const { error } = await response.json();
         throw new Error(error);
       } else {
-        const user = await response.json();
+        const userData = await response.json();
 
-        console.log(`User logged in:`, user);
+        console.log(`User logged in:`, userData);
 
-        setUser(user.user);
-        setToken(user.token);
+        setUser(userData.user);
+              
+        setToken(userData.token);
         setAuth(true);
-        return user;
+        return userData;
       }
     } catch (error) {
       console.error(error);
@@ -45,7 +52,7 @@ const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ auth, setAuth, user, setUser, token, setToken, login }}
+      value={{ auth, setAuth, user, setUser, token, setToken, login, logout }}
     >
       {children}
     </AuthContext.Provider>

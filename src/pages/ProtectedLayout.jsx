@@ -6,8 +6,6 @@ const ProtectedLayout = () => {
 
   console.log(`authentification status: ${auth}`);
   
-
-
   return auth ? <Outlet /> : <Navigate to="/login" replace />;
 };
 

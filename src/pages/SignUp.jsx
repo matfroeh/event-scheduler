@@ -19,7 +19,8 @@ function SignUp() {
       });
       const data = await response.json();
       if (response.ok) {
-        console.log("User created:", data);
+        // console.log("User created:", data);
+        alert("User created successfully! Please login to continue.");
         navigate("/login"); // Navigate to the login page after successful signup
       } else {
         // console.error("Failed to create user:", data);

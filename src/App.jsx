@@ -14,7 +14,7 @@ const App = () => {
 
   const getEventData = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/events");
+      const response = await fetch("http://localhost:3001/api/events?page=1&limit=1000");
       if (!response.ok) {
         throw new Error("Failed to fetch events");
       }
@@ -42,7 +42,7 @@ const App = () => {
 
             <Route path="auth" element={<ProtectedLayout />}>
               <Route index element={<Home events={events} />} />
-              <Route path="create-event" element={<CreateEvent />} />
+              <Route path="create-event" element={<CreateEvent getEventData={getEventData}/>} />
             </Route>
           </Route>
         </Routes>

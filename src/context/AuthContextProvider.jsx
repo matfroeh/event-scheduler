@@ -18,7 +18,6 @@ const AuthContextProvider = ({ children }) => {
   const login = async (loginData) => {
     try {
       const { emailValue, passwordValue } = loginData;
-
       const response = await fetch("http://localhost:3001/api/auth/login", {
         method: "POST",
         headers: {
@@ -31,22 +30,26 @@ const AuthContextProvider = ({ children }) => {
       });
 
       if (!response.ok) {
-        const { error } = await response.json();
+        login.ok = false;
+        // console.log(login.ok);
+        
+        const { error } = await response.json();  
+        // console.log(error);          
         throw new Error(error);
       } else {
+        login.ok = true;
+        // console.log(login.ok);
+
         const userData = await response.json();
-
         console.log(`User logged in:`, userData);
-
         setUser(userData.user);
-              
         setToken(userData.token);
         setAuth(true);
         return userData;
       }
     } catch (error) {
-      console.error(error);
-      return { error: error };
+      // console.log("Login error", error);
+      return { error };
     }
   };
 

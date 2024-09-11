@@ -17,7 +17,7 @@ const EventCard = ({ eventData }) => {
     ).format(dateCast);
 
   return (
-    <div className="card w-72 m-4 bg-base-100 h-72 shadow-xl hover:bg-accent cursor-pointer">
+    <div className="card w-72 m-4 bg-base-200 h-72 shadow-xl hover:bg-accent cursor-pointer">
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <p>{description}</p>

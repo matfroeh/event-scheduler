@@ -1,6 +1,6 @@
 const EventCard = ({ eventData }) => {
 
-    const { id, title, description, date, location, organzierId } = eventData;
+    const { title, description, date } = eventData;
 
     const dateCast = new Date(date);
 

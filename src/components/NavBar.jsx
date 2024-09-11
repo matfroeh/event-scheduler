@@ -5,7 +5,7 @@ function NavBar() {
   const { auth, user, logout } = useAuthContext();
 
   const handleLogout = () => {
-    console.log("Logout");
+    // console.log("Logout");
     logout();
   };
   return (
@@ -15,6 +15,11 @@ function NavBar() {
           <div className="navbar-start">
             <Link to="/auth">
               <button className="btn btn-ghost text-xl">Home</button>
+            </Link>
+          </div>
+          <div className="navbar-center">
+            <Link to="/auth/create-event" className="btn flex btn-primary m-2">
+              Create Event
             </Link>
           </div>
           <div className="navbar-end">

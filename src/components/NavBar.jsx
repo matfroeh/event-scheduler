@@ -11,7 +11,7 @@ function NavBar() {
   return (
     <div>
       {auth ? (
-        <div className="navbar bg-base-200">
+        <div className="navbar bg-cyan-100">
           <div className="navbar-start">
             <Link to="/auth">
               <button className="btn btn-ghost text-xl">Home</button>
@@ -24,7 +24,7 @@ function NavBar() {
           </div>
           <div className="navbar-end">
             <div className="dropdown">
-              <div tabIndex={0} role="button" className="btn btn-success m-1">
+              <div tabIndex={0} role="button" className="btn btn-ghost m-1">
                 {user?.email}
               </div>
               <ul
@@ -39,7 +39,7 @@ function NavBar() {
           </div>
         </div>
       ) : (
-        <div className="navbar bg-base-200">
+        <div className="navbar bg-cyan-100">
           <div className="navbar-start">
             <Link to="/">
               <button className="btn btn-ghost text-xl">Home</button>
